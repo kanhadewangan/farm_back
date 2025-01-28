@@ -46,7 +46,7 @@ app.post("/api/farmer/signup", async (req, res) => {
       email: true,
     },
   });
-  const verify = jwt.sign(farmer, "hello");
+  const verify = jwt.sign(farmer, process.env.KEY);
   res.json({ farmer, verify });
 });
 
@@ -107,7 +107,7 @@ app.post("/api/buyer/signup", async (req, res) => {
       email: true,
     },
   });
-  const verify = jwt.sign(buyer, "hello");
+  const verify = jwt.sign(buyer, process.env.KEY);
   res.json({ buyer, verify });
   console.log(verify);
 });
